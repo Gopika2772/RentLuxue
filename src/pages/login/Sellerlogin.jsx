@@ -19,7 +19,6 @@ const Sellerlogin = () => {
         setEmail("");
         setPassword("");
         console.log(res.data);
-        //dispatchEvent
         dispatch({
           type: "CREATE_USER",
           payload: res.data,
@@ -83,25 +82,7 @@ const Sellerlogin = () => {
                 />
               </div>
 
-              {/* Remember me checkbox and Forgot password link */}
-              {/* <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
-                  </div>
-                </div>
-                <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
-              </div> */}
-              {/* Sign In Button */}
+          
               <button
                 type="submit"
                 className="w-full text-white bg-[#FF3754] hover:bg-[#FF3754] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-[#FF3754] dark:hover:bg-[#ff3755d7] "

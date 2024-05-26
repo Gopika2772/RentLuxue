@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { buyerLogin } from '../../axios/buyer.axios'; // Assuming you have a separate axios file for buyer login
+import { buyerLogin } from '../../axios/buyer.axios';
 
 import { useDispatch } from "react-redux";
 import logo from "../../assets/logo.jpg";
