@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseurl } from "../util";
+const baseurl = process.env.SERVER_URL;
 
 
 export const buyerRegister = (firstname, lastname, email, password, phone, role) => {
