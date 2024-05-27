@@ -9,7 +9,7 @@ const sellerRegister = (req, res) => {
   const { firstname, lastname, email, password, phone, role } = req.body;
   console.log(req.body);
 
-  // Check if user with the same email already exists
+ 
   const checkUserQuery = "SELECT * FROM user_table WHERE email = ?";
   db.query(checkUserQuery, [email], (err, data) => {
     if (err) {
@@ -21,13 +21,11 @@ const sellerRegister = (req, res) => {
       return res.status(409).json("User already exists!");
     }
 
-    // Hash the password
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
     const user_id = uniqid();
     console.log(user_id);
 
-    // Insert the new user into the database
     const insertUserQuery = "INSERT INTO user_table (user_id, firstname, lastname, email, password, phone, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
     const values = [user_id, firstname, lastname, email, hashedPassword, phone, role];
     db.query(insertUserQuery, values, (err, result) => {
@@ -36,7 +34,7 @@ const sellerRegister = (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
       }
 
-      // Generate JWT token
+      
       const token = jwt.sign(
         {
           user_id: user_id,
@@ -44,11 +42,11 @@ const sellerRegister = (req, res) => {
           lastname: lastname,
           email: email,
           phone: phone,
-          role: role, // Include role in the JWT payload
+          role: role,
         },
         process.env.SECRET,
         {
-          expiresIn: 604800, // Token expires in 7 days
+          expiresIn: 604800, 
         }
       );
 
@@ -115,7 +113,7 @@ const sellerLogin = (req, res) => {
       lastname: user.lastname,
       email: user.email,
       phone: user.phone,
-      role: user.role, // Include role in the response
+      role: user.role, 
     });
   });
 };

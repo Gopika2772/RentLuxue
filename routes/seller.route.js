@@ -1,6 +1,4 @@
 const express = require("express");
-// const { sellerRegister, sellerLogin } = require("../controller/seller.auth.controller");
-// const { registerProperty, getProperty, updateProperty, deleteProperty, getIndivPost } = require("../controller/seller.post.controller");
 const { sellerRegister, sellerLogin } = require("../controllers/seller.auth.controller");
 const { registerProperty, getProperty, getIndivPost, updateProperty, deleteProperty } = require("../controllers/seller.post.controller");
 

@@ -36,8 +36,7 @@ const registerProperty = (req, res) => {
     rent);
 
 
-  const post_id = uniqid(); // Generate unique post_id
-
+  const post_id = uniqid();
   const insertHouseQuery = `
     INSERT INTO housedetails (post_id,user_id, location, bedrooms, bathrooms, carParking, facilities, area, facing, floorNumber, openFor, city,
       rent)
