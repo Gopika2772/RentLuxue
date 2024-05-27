@@ -22,7 +22,15 @@ app.use(bodyParser.json());
 
 
 app.use(morgan("dev"));
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: ["https://rent-luxue.vercel.app"],  
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],  
+  })
+);
 
 app.use("/api", sellerRoute);
 app.use("/api", buyerRoute);
