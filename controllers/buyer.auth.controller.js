@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../database/db');
 const uniqid = require('uniqid');
+const BASE_URL = "*";
 
 const buyerRegister = (req, res) => {
   const { firstname, lastname, email, password, phone, role } = req.body;
@@ -70,6 +71,7 @@ const buyerLogin = (req, res) => {
 
   const checkUserQuery = "SELECT * FROM user_table WHERE email = ?";
   db.query(checkUserQuery, [email], (err, data) => {
+    // res.set('Access-Control-Allow-Origin', `${BASE_URL}`);
     if (err) {
       console.error(err);
       return res.status(500).json({ error: "Internal Server Error" });

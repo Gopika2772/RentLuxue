@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 // app.use(cors());
 app.use(
   cors({
-    origin: ["https://rent-luxue.vercel.app"],  
+    origin: ["https://rent-luxue.vercel.app","http://localhost:3000"],  
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],  
@@ -34,6 +34,7 @@ app.use(
 
 app.use("/api", sellerRoute);
 app.use("/api", buyerRoute);
+app.options('*', cors());
 
 
 app.get('/', (req, res) => {
@@ -42,7 +43,7 @@ app.get('/', (req, res) => {
 
 
 
-let port = "8080";
+let port = process.env.PORT||8080;
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
